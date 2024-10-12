@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./gg.css">
+    <title>نموذج تسجيل دخول</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        :root {
+            --primary-color: #c6c3c3;
+            --second-color: #ffffff;
+            --black-color: #000000;
+        }
+        body {
+            background-image: url("./SvWWN.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .login_box {
+            position: relative;
+            width: 450px;
+            backdrop-filter: blur(25px);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 2.5em;
+            color: var(--second-color);
+            box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+        }
+        .login-header {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            width: 170px;
+            height: 70px;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-header span {
+            font-size: 30px;
+            color: var(--black-color);
+        }
+        .input_box {
+            position: relative;
+            margin: 20px 0;
+        }
+        .input-field {
+            width: 100%;
+            height: 55px;
+            font-size: 16px;
+            background: transparent;
+            color: var(--second-color);
+            padding: 0 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            outline: none;
+        }
+        .label {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            transition: 0.2s;
+        }
+        .input-field:focus ~ .label,
+        .input-field:valid ~ .label {
+            top: -10px;
+            font-size: 14px;
+            background-color: var(--primary-color);
+            color: var(--black-color);
+            padding: 0 10px;
+        }
+        .icon {
+            position: absolute;
+            top: 18px;
+            right: 25px;
+            font-size: 20px;
+        }
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+        .input-submit {
+            width: 100%;
+            height: 50px;
+            background: #ececec;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .input-submit:hover {
+            background: var(--second-color);
+        }
+        .register {
+            text-align: center;
+        }
+        @media only screen and (max-width: 564px) {
+            .wrapper {
+                padding: 20px;
+            }
+            .login_box {
+                padding: 2em 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login_box">
+            <div class="login-header">
+                <span>تسجيل الدخول</span>
+            </div>
+            <div class="input_box mt-5 ">
+                <input type="text" id="user" class="input-field" required>
+                <label for="user" class="label">اسم المستخدم</label>
+                <i class="bx bx-user icon"></i>
+            </div>
+            <div class="input_box">
+                <input type="password" id="pass" class="input-field" required>
+                <label for="pass" class="label">كلمة المرور</label>
+                <i class="bx bx-lock-alt icon"></i>
+            </div>
+            <div class="remember-forgot">
+               
+                <div class="forgot">
+                    <a href="#">نسيت كلمة المرور؟</a>
+                </div>
+            </div>
+            <div class="input_box">
+                <input type="submit" class="input-submit" value="تسجيل الدخول" id="loginButton">
+            </div>
+     
+            <div id="message" class="text-center mt-3"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+
+            const username = document.getElementById('user').value;
+            const password = document.getElementById('pass').value;
+
+            // تحقق من اسم المستخدم وكلمة المرور
+            if (username === 'mohammad' && password === '123456') {
+                document.getElementById('message').innerText = 'تسجيل الدخول ناجح!';
+                document.getElementById('message').style.color = 'white';
+            } else {
+                document.getElementById('message').innerText = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+                document.getElementById('message').style.color = 'red';
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
